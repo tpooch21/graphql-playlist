@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Trevor's Reading List</h1>
-      <BookList />
+      <BookList books={data.books} />
     </div>
   );
 }
