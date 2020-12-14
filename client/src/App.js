@@ -1,5 +1,6 @@
 // components
 import BookList from "./components/BookList/BookList";
+import AddBookForm from "./components/AddBookForm/AddBookForm";
 
 // Apollo/gql setup
 import { useQuery } from "@apollo/client";
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <h1>Trevor's Reading List</h1>
       <BookList books={data.books} />
+      <AddBookForm />
     </div>
   );
 }
