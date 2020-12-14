@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import styles from "./AddBookForm.module.css";
 
-const AddBookForm = () => {
+const AddBookForm = ({ authors }) => {
   const { register, handleSubmit, errors } = useForm();
   const submitBookData = (data) => {
     console.log("Book data => ", data);
   };
 
+  console.log(authors);
   return (
     <form
       onSubmit={handleSubmit(submitBookData)}
@@ -32,9 +33,11 @@ const AddBookForm = () => {
         name="author"
         ref={register({ required: true })}
       >
-        <option value="Terry Pratchett">Terry Pratchett</option>
-        <option value="Patrick Rothfuss">Patrick Rothfuss</option>
-        <option value="Brandon Sanderson">Brandon Sanderson</option>
+        {authors.map(({ id, name }) => (
+          <option value={name} key={id}>
+            {name}
+          </option>
+        ))}
       </select>
       <button type="submit">
         <p>Submit</p>

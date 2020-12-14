@@ -4,21 +4,26 @@ import AddBookForm from "./components/AddBookForm/AddBookForm";
 
 // Apollo/gql setup
 import { useQuery } from "@apollo/client";
-import getBooksQuery from "./apolloQueries/books";
+import queryMultiple from "./customHooks/queryMultiple";
+import { getBooksQuery } from "./apolloQueries/books";
+import { getAuthorsQuery } from "./apolloQueries/authors";
 
 function App() {
-  const { loading, error, data } = useQuery(getBooksQuery);
+  const [getBooksQueryResult, getAuthorsQueryResult] = queryMultiple(
+    getBooksQuery,
+    getAuthorsQuery
+  );
+  const loading = getBooksQueryResult.loading || getAuthorsQueryResult.loading;
+  const error = getBooksQueryResult.error || getAuthorsQueryResult.error;
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
-  console.log(data);
-
   return (
     <div className="App">
       <h1>Trevor's Reading List</h1>
-      <BookList books={data.books} />
-      <AddBookForm />
+      <BookList books={getBooksQueryResult.data.books} />
+      <AddBookForm authors={getAuthorsQueryResult.data.authors} />
     </div>
   );
 }
