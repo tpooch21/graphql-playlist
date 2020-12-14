@@ -15,8 +15,28 @@ form > * {
   margin-left: 40px;
 }
 
-input {
+input,
+select {
   margin-bottom: 10px;
   width: 200px;
   height: 20px;
+}
+
+button {
+  margin-top: 10px;
+  height: 30px;
+  width: 100px;
+  background: green;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invalid {
+  border: 1px solid red;
 }

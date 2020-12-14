@@ -12,23 +12,23 @@ const AddBookForm = () => {
       onSubmit={handleSubmit(submitBookData)}
       className={styles.AddBookForm}
     >
-      <label for="bookTitle">Book Title:</label>
+      <label htmlFor="bookTitle">Book Title:</label>
       <input
-        error={!!errors.bookTitle}
+        className={!!errors.bookTitle ? styles.invalid : null}
         type="text"
         name="bookTitle"
         ref={register({ required: true })}
       />
-      <label for="bookGenre">Genre:</label>
+      <label htmlFor="bookGenre">Genre:</label>
       <input
-        error={!!errors.bookGenre}
+        className={!!errors.bookGenre ? styles.invalid : null}
         type="text"
         name="bookGenre"
         ref={register({ required: true })}
       />
-      <label for="author">Author:</label>
+      <label htmlFor="author">Author:</label>
       <select
-        error={!!errors.author}
+        className={!!errors.author ? styles.invalid : null}
         name="author"
         ref={register({ required: true })}
       >
@@ -36,6 +36,9 @@ const AddBookForm = () => {
         <option value="Patrick Rothfuss">Patrick Rothfuss</option>
         <option value="Brandon Sanderson">Brandon Sanderson</option>
       </select>
+      <button type="submit">
+        <p>Submit</p>
+      </button>
     </form>
   );
 };
