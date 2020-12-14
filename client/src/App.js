@@ -1,5 +1,5 @@
 // components
-import BookList from "./components/BookList";
+import BookList from "./components/BookList/BookList";
 
 // Apollo/gql setup
 import { useQuery } from "@apollo/client";

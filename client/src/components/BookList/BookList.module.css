@@ -1,0 +1,14 @@
+.BookList {
+  width: 750px;
+  display: flex;
+}
+
+.BookList li {
+  height: 30px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 0 0 #aaa;
+  border-radius: 3px;
+  margin: 10px 0;
+  text-align: center;
+  list-style: none;
+}
